@@ -4,7 +4,6 @@ from discord.client import Client
 import dotenv
 import requests
 import json
-import method_handler as mh
 import time
 import os
 import requests
