@@ -39,9 +39,6 @@ async def on_command_error(ctx, error):
 
 @bot.command()
 async def list(ctx):
-    #post_headers = {'Authorization' : 'Bearer {SELLIX_API_KEY}}
-    #token="258deGySwb3gUJqCXQKcZ5woIeLm8QbLYLwwUC5g3aIzBr1uUi3VX0wLLq2RqxPC"
-  
     order = "https://dev.sellix.io/v1/orders"
     dotenv_path = join(dirname(__file__), '.env')
     load_dotenv(dotenv_path)
@@ -61,9 +58,6 @@ async def list(ctx):
 
 @bot.command()
 async def order(ctx,description):
-    #post_headers = {'Authorization' : 'Bearer {SELLIX_API_KEY}}
-    #token="258deGySwb3gUJqCXQKcZ5woIeLm8QbLYLwwUC5g3aIzBr1uUi3VX0wLLq2RqxPC"
-  
     order = "https://dev.sellix.io/v1/orders/" + description
     dotenv_path = join(dirname(__file__), '.env')
     load_dotenv(dotenv_path)
@@ -79,7 +73,6 @@ async def order(ctx,description):
     file ="order " + description
     o = open(file,"w")
     o.write(json.dumps(parsed, indent=2))
-   # print (json.dumps(parsed, indent=2))
     print(description)
     await ctx.send(file=discord.File(file))
 bot.run(token)
