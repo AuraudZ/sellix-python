@@ -4,8 +4,6 @@ from discord.client import Client
 import dotenv
 import requests
 import json
-import time
-import os
 import requests
 import os
 from requests.api import head
@@ -14,12 +12,14 @@ from os.path import join, dirname
 from dotenv import load_dotenv 
 from os import system
 from discord.ext import commands
-bot = commands.Bot(command_prefix='!')
+prefix=os.getenv('PREFIX')
+token = os.getenv('TOKEN')
+secret_key = os.getenv('API_KEY')
+bot = commands.Bot(command_prefix=prefix)
 bot.remove_command("help")
 dotenv_path = join(dirname(__file__), '.env')
 load_dotenv(dotenv_path)
-token = os.getenv('TOKEN')
-secret_key = os.getenv('API_KEY')
+
 
 @bot.event
 async def on_ready():
