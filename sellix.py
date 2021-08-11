@@ -11,6 +11,7 @@ from requests.structures import CaseInsensitiveDict
 from os.path import join, dirname
 from dotenv import load_dotenv 
 from os import system
+import datetime
 from discord.ext import commands
 prefix=os.getenv('PREFIX')
 token = os.getenv('TOKEN')
@@ -75,4 +76,9 @@ async def order(ctx,description):
     o.write(json.dumps(parsed, indent=2))
     print(description)
     await ctx.send(file=discord.File(file))
+@bot.command()
+async def time(description,ctx)
+    now = datetime.datetime.now()
+    print(description)
+    await ctx.send(now)
 bot.run(token)
